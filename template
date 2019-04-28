@@ -2,21 +2,35 @@
 
 % ====== Drum notations customized
 #(define md '(
-  (ridecymbal   cross    #f  4)
-  (ridebell     xcircle  #f  4)
-  (crashcymbal  cross    #f  6)
-  (splashcymbal harmonic #f  6)
-  (pedalhihat   cross    #f -5)
-  (hihat        cross    #f  5)
-  (closedhihat  cross "stopped"  5)
-  (openhihat    cross "open"     5)
-  (halfopenhihat cross "halfopen" 5)
-  (snare        default  #f  1)
-  (sidestick    xcircle    #f  1)
-  (lowfloortom  default  #f -1)
-  (lowtom       default  #f  2)
-  (hightom      default  #f  3)
-  (bassdrum     default  #f -3)
+
+  (crashcymbal  cross    #f         6)
+  (splashcymbal harmonic #f         6)
+
+  (hihat        cross    #f         5)
+  (closedhihat  cross    "stopped"  5)
+  (openhihat    cross    "open"     5)
+  (halfopenhihat cross   "halfopen" 5)
+
+  (ridecymbal   cross    #f         4)
+  (ridebell     xcircle  #f         4)
+
+  (hightom      default  #f         3)
+  (himidtom     default  #f         3)
+
+  (lowtom       default  #f         2)
+  (lowmidtom    default  #f         2)
+
+  (snare        default  #f         1)
+  (sidestick    xcircle  #f         1)
+
+  (highfloortom default  #f        -1)
+
+  (lowfloortom  default  #f        -2)
+
+  (bassdrum     default  #f        -3)
+
+  (pedalhihat   cross    #f        -5)
+
 ))
 
 % ====== Custom open and half-open ornamentation
@@ -31,6 +45,7 @@ up = \drummode {
   \stemUp
   \slurDown
   \numericTimeSignature
+  \override Beam #'positions = #'(5.5 . 5.5)
 
   % Tempo and rehearsal marks
 
@@ -44,14 +59,21 @@ up = \drummode {
 down = \drummode {
   % Customizations
   \stemDown
+  \override Beam #'positions = #'(-5 . -5)
 
   % Notes
 
-
+  
 
 }
 
 % ====== Layout customizations
+\header {
+  title = ""
+  composer = ""
+  tagline = "Music engraving by JW using LilyPond  - www.lilypond.org"
+}
+
 \score
 {
   <<
